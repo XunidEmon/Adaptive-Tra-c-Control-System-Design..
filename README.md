@@ -1,11 +1,51 @@
-This project presents a four-way Adaptive Traffic Control System designed using Arduino, IR
-sensors, counter ICs, and 7-segment displays. The system intelligently controls traffic
-signals by detecting the presence and number of vehicles on each road. If fewer than three
-vehicles are detected, the light does not switch to that road, reducing unnecessary waiting
-time. The Arduino acts as the data collector and decision maker, controlling counter ICs that
-drive 7-segment displays through a BCD-to-7-segment decoder. The design improves traffic
-flow efficiency, minimizes fuel consumption, and ensures pedestrian and emergency safety.
+# 🚦 Adaptive Four-Way Traffic Control System
 
+## 📌 Overview
+This project is an Arduino-based smart traffic control system that dynamically manages a four-way intersection using IR sensors and decision logic.
+
+The system prioritizes traffic flow based on vehicle density, reducing unnecessary waiting time and improving road efficiency.
+
+---
+
+## ⚙️ Features
+- Real-time vehicle detection using IR sensors
+- Adaptive signal switching based on traffic density
+- Four-way intersection control logic
+- Button-based manual override (X / Y mode)
+- Vehicle counting system (cycle + total tracking)
+- Serial monitoring for debugging and analysis
+
+---
+
+## 🧠 Working Principle
+- IR sensors detect vehicles on each road
+- Arduino counts vehicles per lane
+- Traffic direction is decided by comparing:
+  - X-side = A0 + A2  
+  - Y-side = A1 + A3
+- System switches signal only when required
+
+---
+
+## 🔌 Hardware Used
+- Arduino UNO
+- IR Sensors (x4)
+- Counter / Display IC (optional)
+- 7-Segment Display with BCD decoder
+- Push buttons (x2)
+- LEDs / Traffic signals
+
+---
+
+## 📊 Impact
+- Reduces unnecessary waiting time
+- Improves fuel efficiency
+- Smart urban traffic optimization
+- Emergency-aware traffic flow design (expandable)
+
+---
+
+```cpp
 #define H HIGH
 #define L LOW
 
@@ -367,3 +407,4 @@ void functionY() {
     checkAutoSwitch(); // Data analysis and decision making
   }
 }
+```
